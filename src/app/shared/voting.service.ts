@@ -9,11 +9,11 @@ export class VotingService {
   constructor(private http: HttpClient) { }
 
   postVote(emoji_id: number) {
-    return this.http.post('https://3af82c1e4a8e43e699ad52d6a2f7c67e.apig.la-south-2.huaweicloudapis.com/votes', { "emoji_id": emoji_id })
+    return this.http.post('http://k8s-emojivot-voteingr-5e95f24ebc-1629858417.us-east-2.elb.amazonaws.com/votes', { "emoji_id": emoji_id })
   }
 
   getVotes() {
-    return this.http.get<Vote[]>('https://3af82c1e4a8e43e699ad52d6a2f7c67e.apig.la-south-2.huaweicloudapis.com/votes')
+    return this.http.get<Vote[]>('http://k8s-emojivot-voteingr-5e95f24ebc-1629858417.us-east-2.elb.amazonaws.com/votes')
       .pipe(
         map(responseData => {
           const postsArray: Vote[] = [];
