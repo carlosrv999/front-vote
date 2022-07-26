@@ -9,7 +9,7 @@
       <mat-grid-tile *ngFor="let emoji of emojis; let i = index">
         <button [title]="emoji.description" (click)="onVote(emoji)" class="emoji" [ngStyle]="{'background-color': colors[i]}" mat-fab color="accent"
           aria-label="Example icon button with a bookmark icon">
-          {{ emoji.emoji }}
+          {{ emoji?.emoji }}
         </button>
       </mat-grid-tile>
 
@@ -25,14 +25,14 @@
       <mat-grid-list cols="3" rowHeight="70px">
         <mat-grid-tile>
           <button class="emoji" mat-fab [ngStyle]="{'background-color': colors[vote.emoji_id-1]}" aria-label="Example icon button with a home icon">
-            {{ emojis[vote.emoji_id-1].emoji }}
+            {{ emojis[vote.emoji_id-1]?.emoji }}
           </button>
         </mat-grid-tile>
         <mat-grid-tile>
           <mat-icon>arrow_forward_ios</mat-icon>
         </mat-grid-tile>
         <mat-grid-tile style="font-size: 30px">
-          {{ vote.vote_quantity }}
+          {{ vote?.vote_quantity }}
         </mat-grid-tile>
       </mat-grid-list>
     </mat-card>
